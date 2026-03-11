@@ -1,3 +1,11 @@
+# Cloning the repository
+
+```bash
+git clone https://github.com/Lbhagirathi/Biodiversity_dataset_analysis-
+```
+```bash
+cd Biodiversity_dataset_analysis-/
+```
 # Installing required packages
 ### 1. Create virtual environment
 ```bash
