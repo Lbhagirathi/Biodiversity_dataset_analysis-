@@ -19,7 +19,10 @@ source venv/bin/activate
 ```bash
 pip install -r packages.txt
 ```
+---
 
-# How it Works
-A simple API call from hugginface.co helps others go through the database and  read its contents, this removes the unneccesary trouble of downloading the data (hoping cloud works fine). This database used has the count of species of birds from Denmark observed over various lattitude over different years. The entire database was taken from GBIF and uploaded to huggingface.co, the database contains about 60GB worth of information.
+# Loading the data
+The [database](https://www.gbif.org/occurrence/search?dataset_key=95db4db8-f762-11e1-a439-00145eb45e9a) used has observation records of species of birds from Denmark observed over many years. It contains about 60GB of information with ~40M records.
+The entire database was taken from GBIF and uploaded to huggingface.co, a simple API call from which helps others go through the database and read its contents, removing the unnecessary trouble of downloading the data.
 
+For the sake of our analysis, we've created a python script which streams the data from huggingface.co and writes the valid entires into a parqut file after necessary filtering.
