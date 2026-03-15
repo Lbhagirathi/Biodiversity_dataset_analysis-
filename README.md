@@ -56,3 +56,9 @@ if "species" is empty
 - **Strategy A (Grid):** Overlay regular 0.1° grid on Denmark's bounding box; assign each record to a grid cell by rounding coordinates
 - **Strategy B (Administrative):** Assign each record to a Danish region/municipality via spatial join: `geopandas.sjoin`
 - Output: two parallel spatial datasets (grid-assigned and admin-assigned) carried into all downstream analyses
+
+## Data Cleaning
+- **Taxonomic:** flag and remove records with `TAXON_MATCH_FUZZY` in `issue` column
+- **Spatial:** remove records with `coordinateUncertaintyInMeters` > `threshold`; we decide the threshold according to the choice of grid
+- **Duplicates:** detect duplicate rows on (`species`, `eventDate`, `decimalLatitude`, `decimalLongitude`); keep one per group — `pandas.DataFrame.duplicated`
+- **Missing metadata:** handle contextually per analysis (e.g., drop missing `year` only for temporal analyses, not spatial ones)
