@@ -62,3 +62,10 @@ if "species" is empty
 - **Spatial:** remove records with `coordinateUncertaintyInMeters` > `threshold`; we decide the threshold according to the choice of grid
 - **Duplicates:** detect duplicate rows on (`species`, `eventDate`, `decimalLatitude`, `decimalLongitude`); keep one per group — `pandas.DataFrame.duplicated`
 - **Missing metadata:** handle contextually per analysis (e.g., drop missing `year` only for temporal analyses, not spatial ones)
+
+## Biodiversity Indicators
+- **Species richness:** `groupby` region → `nunique` on `species` column; compute for both grid and admin aggregations
+- **Range restriction:** per species, count number of distinct regions recorded in (`groupby species → nunique region`); flag bottom 10% occupancy as range-restricted
+- **Observation effort:** two parallel effort proxies:
+    - count total records per region
+    - number of unique observation events: unique combinations of (`eventDate` and `decimalLatitude`, `decimalLongitude`) per region
