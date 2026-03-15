@@ -69,3 +69,13 @@ if "species" is empty
 - **Observation effort:** two parallel effort proxies:
     - count total records per region
     - number of unique observation events: unique combinations of (`eventDate` and `decimalLatitude`, `decimalLongitude`) per region
+
+## Interactive Dashboard 
+- Framework: **Dash by Plotly**
+- Load pre-computed summary Parquet files (not raw records) on app startup
+- Components:
+  - Choropleth map of Denmark (species richness / effort toggle)
+  - Time-series chart (records or species per year)
+  - Taxonomic group dropdown
+  - Year-range slider
+- Mechanisms to link components: selecting a region should update the time-series; selecting a taxonomic group should update the map, etc.
