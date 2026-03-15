@@ -46,3 +46,13 @@ if "occurrenceStatus" is not "PRESENT"
 if "taxonRank" is not "SPECIES"
 if "species" is empty
 ```
+---
+
+# Planned Workflow
+
+## Geographic Scope and Analysis Regions
+- We'll use `geopandas` for these operations
+- Load Denmark national + regional/municipal boundary shapefiles from GADM
+- **Strategy A (Grid):** Overlay regular 0.1° grid on Denmark's bounding box; assign each record to a grid cell by rounding coordinates
+- **Strategy B (Administrative):** Assign each record to a Danish region/municipality via spatial join: `geopandas.sjoin`
+- Output: two parallel spatial datasets (grid-assigned and admin-assigned) carried into all downstream analyses
