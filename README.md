@@ -21,6 +21,17 @@ pip install -r packages.txt
 ```
 ---
 
+# Intoduction
+This project analyzes long-term bird biodiversity patterns using the Global Biodiversity Information Facility (GBIF) dataset derived from the DOFbasen Bird Observation Database, which contains citizen-science observations of birds recorded across Denmark from 1750 to the present. The dataset includes more than 40 million occurrence records and is approximately 60 GB in size. To efficiently access and process this large dataset, records are streamed from Hugging Face rather than downloaded locally.
+
+During preprocessing, only biologically relevant and spatially valid records are retained, focusing exclusively on species belonging to the class Aves with verified coordinates and confirmed presence. Essential taxonomic, spatial, and temporal fields are preserved while filtering out incomplete or problematic records.
+
+The analysis focuses on understanding spatial biodiversity patterns by assigning observations to geographic units using two complementary approaches: a regular spatial grid and administrative boundaries of Denmark. Using these spatial groupings, biodiversity indicators such as species richness, range restriction, and observation effort are calculated.
+
+Finally, the processed data are summarized and visualized through an interactive dashboard built with Plotly Dash, enabling exploration of spatial and temporal trends in bird biodiversity. The dashboard allows users to interactively examine species richness, observation effort, and temporal changes across Danish regions.
+
+
+
 # Data Loading and Pre-Processing
 The [DOFbasen database](https://www.gbif.org/occurrence/search?dataset_key=95db4db8-f762-11e1-a439-00145eb45e9a) used has observation records of bird species observed in Denmark from as early as 1750 to present. It contains about 60GB of information with over 40M records till date.
 The entire database was taken from GBIF and uploaded to huggingface.co, a simple API call from which helps others go through the database and read its contents, removing the unnecessary trouble of downloading the data.
