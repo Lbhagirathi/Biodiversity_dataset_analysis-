@@ -4,7 +4,7 @@
 git clone https://github.com/Lbhagirathi/Biodiversity_dataset_analysis-
 cd Biodiversity_dataset_analysis-/
 ```
-# Installing required packages
+# Installing required packages(Linux or MacOS)
 ### 1. Create virtual environment
 ```bash
 python -m venv venv
@@ -19,6 +19,21 @@ source venv/bin/activate
 ```bash
 pip install -r packages.txt
 ```
+# Installing required packages(Windows)
+```
+python -m venv venv
+```
+## If using Command Prompt(cmd)
+```
+venv\Scripts\activate
+pip install -r packages.txt
+```
+## If using powershell
+```
+.\venv\Scripts\Activate.ps1
+pip install -r packages.txt
+```
+
 ---
 
 # Introduction
