@@ -46,6 +46,17 @@ The analysis focuses on understanding spatial biodiversity patterns by assigning
 Finally, the processed data are summarized and visualized through an interactive dashboard built with Plotly Dash, enabling exploration of spatial and temporal trends in bird biodiversity. The dashboard allows users to interactively examine species richness, observation effort, and temporal changes across Danish regions.
 
 
+Raw bird observations
+        ↓
+Data cleaning
+        ↓
+Spatial aggregation
+(grid + administrative regions)
+        ↓
+Biodiversity indicators
+        ↓
+Hotspot monitoring dashboard
+
 
 # Data Loading and Pre-Processing
 The [DOFbasen database](https://www.gbif.org/occurrence/search?dataset_key=95db4db8-f762-11e1-a439-00145eb45e9a) used has observation records of bird species observed in Denmark from as early as 1750 to present. It contains about 60GB of information with over 40M records till date.
