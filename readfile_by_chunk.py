@@ -13,7 +13,7 @@ COLUMNS_NEEDED = [
     "decimalLatitude", "decimalLongitude", "coordinateUncertaintyInMeters",
     "eventDate", "year", "month", "day", "individualCount",
     "occurrenceStatus", "hasCoordinate", "hasGeospatialIssues",
-    "issue", "stateProvince", "countryCode"
+    "issue", "recordedBy", "countryCode"
 ]
 
 OUTPUT_PATH = "dofbasen_birds_filtered.parquet"
