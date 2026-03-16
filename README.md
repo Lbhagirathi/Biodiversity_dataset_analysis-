@@ -37,7 +37,7 @@ pip install -r packages.txt
 ---
 
 # Introduction
-This project analyzes long-term bird biodiversity patterns using the Global Biodiversity Information Facility (GBIF) dataset derived from the DOFbasen Bird Observation Database, which contains citizen-science observations of birds recorded across Denmark from 1750 to the present. The dataset includes more than 40 million occurrence records and is approximately 60 GB in size. To efficiently access and process this large dataset, records are streamed from Hugging Face rather than downloaded locally.
+This project analyzes long-term bird biodiversity patterns using the Global Biodiversity Information Facility (GBIF) dataset derived from the DOFbasen Bird Observation Database, which contains citizen-science observations of birds recorded across Denmark from 1750 to the present. The dataset includes more than 40 million occurrence records and is approximately 60 GB in size. To efficiently access and process this large dataset, records are streamed from Hugging Face rather than downloaded locally. Although we will be taking only the data from 2000 to 2026 (present) so as to see the biodiversity patterns over ecological time scales. And finally the hotspots.
 
 During preprocessing, only biologically relevant and spatially valid records are retained, focusing exclusively on species belonging to the class Aves with verified coordinates and confirmed presence. Essential taxonomic, spatial, and temporal fields are preserved while filtering out incomplete or problematic records.
 
