@@ -4,7 +4,7 @@
 git clone https://github.com/Lbhagirathi/Biodiversity_dataset_analysis-
 cd Biodiversity_dataset_analysis-/
 ```
-# Installing required packages(Linux or MacOS)
+# Installing required packages (Linux or MacOS)
 ### 1. Create virtual environment
 ```bash
 python -m venv venv
@@ -19,11 +19,11 @@ source venv/bin/activate
 ```bash
 pip install -r packages.txt
 ```
-# Installing required packages(Windows)
+# Installing required packages (Windows)
 ```
 python -m venv venv
 ```
-## If using Command Prompt(cmd)
+## If using Command Prompt (cmd)
 ```
 venv\Scripts\activate
 pip install -r packages.txt
@@ -46,16 +46,7 @@ The analysis focuses on understanding spatial biodiversity patterns by assigning
 Finally, the processed data are summarized and visualized through an interactive dashboard built with Plotly Dash, enabling exploration of spatial and temporal trends in bird biodiversity. The dashboard allows users to interactively examine species richness, observation effort, and temporal changes across Danish regions.
 
 
-Raw bird observations
-        ↓
-Data cleaning
-        ↓
-Spatial aggregation
-(grid + administrative regions)
-        ↓
-Biodiversity indicators
-        ↓
-Hotspot monitoring dashboard
+Raw bird observations $\rightarrow$ Data cleaning $\rightarrow$ Spatial aggregation (grid + administrative regions) $\rightarrow$ Biodiversity indicators $\rightarrow$ Hotspot monitoring dashboard
 
 
 # Data Loading and Pre-Processing
@@ -71,7 +62,7 @@ We've only kept the following necessary columns:
 "decimalLatitude", "decimalLongitude", "coordinateUncertaintyInMeters",
 "eventDate", "year", "month", "day", "individualCount",
 "occurrenceStatus", "hasCoordinate", "hasGeospatialIssues",
-"issue", "stateProvince", "countryCode"
+"issue", "recordedBy", "countryCode"
 ```
 
 During the streaming process itself, we've filtered out entries according to the conditions on the columns:
