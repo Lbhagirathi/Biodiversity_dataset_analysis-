@@ -1,0 +1,2 @@
+When using this dataset please use the following citation and pay attention to the rights documented in rights.txt:
+Nyegaard T (2026). DOF/BirdLife Denmark - Observations from DOFbasen. Danish Ornithological Society. Occurrence dataset https://doi.org/10.15468/tww7cj accessed via GBIF.org on 2026-03-09.
