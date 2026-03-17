@@ -93,7 +93,7 @@ if "species" is empty
 
 ## Biodiversity Indicators
 - **Species richness:** `groupby` region → `nunique` on `species` column; compute for both grid and admin aggregations
-- **Range restriction:** per species, count number of distinct regions recorded in (`groupby species → nunique region`); flag bottom 10% occupancy as range-restricted
+- **Range restriction:** per species, count number of distinct regions recorded in (`groupby species → nunique region`); flag bottom 10% occupancy as range-restricted. We define range-restricted species as those occurring in the lowest 10% of regions based on observed data. This provides a relative measure of spatial occupancy, although it may also reflect sampling bias in biodiversity records.
 - **Observation effort:** two parallel effort proxies:
     - count total records per region
     - number of unique observation events: unique combinations of (`eventDate` and `decimalLatitude`, `decimalLongitude`) per region
