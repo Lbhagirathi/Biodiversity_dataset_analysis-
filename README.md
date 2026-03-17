@@ -81,7 +81,7 @@ if "species" is empty
 ## Geographic Scope and Analysis Regions
 - We'll use `geopandas` for these operations
 - Load Denmark national + regional/municipal boundary shapefiles from GADM
-- **Strategy A (Grid):** Overlay regular 0.1° grid on Denmark's bounding box; assign each record to a grid cell by rounding coordinates
+- **Strategy A (Grid):** Overlay regular 0.1° grid or [Uber's h3-py](https://github.com/uber/h3-py.git) grid on Denmark's bounding box; assign each record to a grid cell by rounding coordinates
 - **Strategy B (Administrative):** Assign each record to a Danish region/municipality via spatial join: `geopandas.sjoin`
 - Output: two parallel spatial datasets (grid-assigned and admin-assigned) carried into all downstream analyses
 
@@ -96,8 +96,7 @@ if "species" is empty
 - **Range restriction:** per species, count number of distinct regions recorded in (`groupby species → nunique region`); flag bottom 10% occupancy as range-restricted. We define range-restricted species as those occurring in the lowest 10% of regions based on observed data. This provides a relative measure of spatial occupancy, although it may also reflect sampling bias in biodiversity records.
 - **Observation effort:** two parallel effort proxies:
     - count total records per region
-    - number of unique observation events: unique combinations of (`eventDate` and `decimalLatitude`, `decimalLongitude`) per region
-
+    - number of unique observation events: unique combinations of (`recordedBy`, `eventDate` and region identifier)
 ## Interactive Dashboard 
 - Framework: **Dash by Plotly**
 - Load pre-computed summary Parquet files (not raw records) on app startup
