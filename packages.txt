@@ -1,7 +1,12 @@
 pandas
 numpy
+dateutils
 matplotlib
 requests
 datasets
-huggingface_hub
+dash
+Dash
+dash-ag-grid
+ploty.express
 pyarrow
+
