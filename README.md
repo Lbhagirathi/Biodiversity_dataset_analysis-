@@ -110,7 +110,10 @@ if "species" is empty
   - Year-range slider
 - Mechanisms to link components: selecting a region should update the time-series; selecting a taxonomic group should update the map, etc.
 
-- scripts/
+---
+```
+scripts/
   ├── readfile.py
   ├── readfile_pandas.py
   ├── readfile_by_chunk.py
+```
