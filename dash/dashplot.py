@@ -4,7 +4,7 @@ import pandas as pd
 
 app = Dash()
 
-df = pd.read_csv("../trial_data/birds.csv").iloc[:,1:] # this is just a sample contaning ~300K rows
+df = pd.read_csv("./trial_data/birds.csv").iloc[:,1:] # this is just a sample contaning ~300K rows
 
 app.layout = dag.AgGrid(
     rowData=df.to_dict("records"),
