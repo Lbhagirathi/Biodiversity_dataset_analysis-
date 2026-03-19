@@ -142,6 +142,13 @@ def stream_and_filter(url, columns_needed, output_path, batch_size):
             if record.get("taxonRank", "")!= "SPECIES": skipped_filtered += 1; continue
             if not record.get("species", "").strip(): skipped_filtered += 1; continue
 
+            # Keep only records after year 2000
+            # Year arrives as a string from the TSV — must compare against string, not int
+            # We also guard against empty/missing year values
+            year_val = record.get("year", "").strip()
+            if not year_val or int(year_val) < 2000:
+                skipped_filtered += 1; continue
+
             # Add to buffer
             buffer.append(record)
             total_kept += 1
