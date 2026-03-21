@@ -109,6 +109,8 @@ if "species" is empty
   - Taxonomic group dropdown
   - Year-range slider
 - Mechanisms to link components: selecting a region should update the time-series; selecting a taxonomic group should update the map, etc.
+  
+- Note: customization_instructions.md is a file that instructs the user to create their own species abundance visualizer from the raw_framework.py file.
 
 ---
 ```
