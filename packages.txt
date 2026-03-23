@@ -6,7 +6,12 @@ requests
 datasets
 dash
 Dash
+dcc
+html
+Input
+Output
 dash-ag-grid
 ploty.express
+wikipedia
 pyarrow
 
