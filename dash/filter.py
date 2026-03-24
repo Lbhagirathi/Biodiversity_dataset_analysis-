@@ -68,7 +68,7 @@ def build_species_status(input_file, output_file="species_status.parquet"):
             "status": status
         })
 
-        time.sleep(0.1)  # avoid being blocked
+        time.sleep(0.1)  # avoid being blocked cause we may get blocked thinking we are robot
 
     result_df = pd.DataFrame(results)
 
