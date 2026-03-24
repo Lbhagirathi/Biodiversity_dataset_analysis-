@@ -9,22 +9,21 @@ app = Dash()
 
 df = pd.read_csv("./birds.csv").iloc[:, 1:]
 df_species = pd.read_csv("./species_status.csv")
+
 df_merged = df.merge(df_species, on="species", how="left")
 
 if "status" in df_merged.columns:
-    df_merged["status"] = df_merged["status"].fillna("common")
+    df_merged["status"] = df_merged["status"].fillna("Common_Other")
 else:
-    df_merged["status"] = "common"
+    df_merged["status"] = "Common_Other"
 
 counts = df_merged["species"].value_counts()
-x = counts.index
-y = counts.values
+x_init = counts.index
+y_init = counts.values
 
-species_list = df_merged["species"].unique()
-status_order = ["common", "migrating", "endangered", "exotic", "extinct"]
-
-status_list = [s for s in status_order if s in df_merged["status"].unique()]
-bar_graph = px.bar(x=x, y=y, labels={"x": "Species", "y": "Count"})
+species_list = df_merged["species"].dropna().unique()
+status_list = df_merged["status"].dropna().unique()
+bar_graph = px.bar(x=x_init, y=y_init, labels={"x": "Species", "y": "Count"})
 
 card_style = {
     "backgroundColor": "#ffffff",
@@ -42,22 +41,36 @@ app.layout = html.Div([
     }),
 
     html.Div([
-        dcc.Dropdown(
-            id="status-filter",
-            options=[{"label": "All", "value": "all"}] +
-                    [{"label": s, "value": s} for s in status_list],
-            value="all",
-            placeholder="Filter by status"
+        html.Div(
+            dcc.Dropdown(
+                id="status-filter",
+                options=[{"label": "All Statuses", "value": "all"}] + [{"label": s, "value": s} for s in status_list],
+                value="all", 
+                clearable=False,
+                placeholder="Filter by Status..."
+            ),
+            style={"width": "30%"}
         ),
-
-        dcc.Dropdown(
-            id="species-dropdown",
-            options=[{"label": s, "value": s} for s in species_list],
-            placeholder="Select species...",
-            searchable=True
+        
+        # Species Dropdown box
+        html.Div(
+            dcc.Dropdown(
+                id="species-dropdown",
+                options=[{"label": s, "value": s} for s in species_list],
+                placeholder="Select species...",
+                searchable=True
+            ),
+            style={"width": "65%"}
         )
-    ], style={**card_style, "width": "60%", "margin": "10px auto"}),
+    ], style={
+        **card_style, 
+        "display": "flex", 
+        "justifyContent": "space-between", 
+        "width": "60%", 
+        "margin": "10px auto"
+    }),
 
+    # Card with info and image
     html.Div([
         html.Div(
             html.Div(id="wiki-text"),
@@ -73,6 +86,7 @@ app.layout = html.Div([
         "padding": "0 40px"
     }),
 
+    # Graph 
     html.Div(
         dcc.Graph(id="graph", figure=bar_graph),
         style={**card_style, "margin": "30px 40px"}
@@ -105,6 +119,7 @@ def get_wiki_data(species):
         print("Wiki error:", e)
         return "Error fetching data."
 
+# Collects image 
 def get_bird_image(species):
     try:
         url = "https://en.wikipedia.org/w/api.php"
@@ -113,12 +128,10 @@ def get_bird_image(species):
             "format": "json",
             "titles": species,
             "prop": "pageimages",
-            "pithumbsize": 500,
-            "redirects": 1
+            "pithumbsize": 500, 
+            "redirects": 1       
         }
-
-        headers = {"User-Agent": "BirdDashboard/1.0"}
-
+        headers = {"User-Agent": "BirdBiodiversityDashboard/1.0 (learning_dash@example.com)"}
         response = requests.get(url, params=params, headers=headers)
 
         if response.status_code != 200:
@@ -127,60 +140,70 @@ def get_bird_image(species):
         data = response.json()
         pages = data.get("query", {}).get("pages", {})
 
-        for page in pages.values():
-            if "thumbnail" in page:
-                return page["thumbnail"]["source"]
-
+        for page_id, page_data in pages.items():
+            if "thumbnail" in page_data:
+                return page_data["thumbnail"]["source"]
         return None
-
     except Exception as e:
-        print("Image error:", e)
+        print("Image API error:", e)
         return None
 
 @app.callback(
     Output("wiki-text", "children"),
     Output("wiki-image", "children"),
     Output("graph", "figure"),
+    Output("species-dropdown", "options"), 
     Input("species-dropdown", "value"),
     Input("status-filter", "value")
 )
 def update(species, status):
     if status == "all" or status is None:
-        filtered = df_merged
+        filtered_df = df_merged
     else:
-        filtered = df_merged[df_merged["status"] == status]
+        filtered_df = df_merged[df_merged["status"] == status]
 
-    filtered_counts = filtered["species"].value_counts()
+    filtered_counts = filtered_df["species"].value_counts()
     x_filtered = filtered_counts.index
     y_filtered = filtered_counts.values
+    
 
-    fig = px.bar(x=x_filtered, y=y_filtered,
-                 labels={"x": "Species", "y": "Count"})
+    available_species = filtered_df["species"].dropna().unique()
+    dropdown_options = [{"label": s, "value": s} for s in available_species]
 
-    # Highlight selected species
-    if species in x_filtered:
+    # rebuilds graph with filtered data  only
+    fig = px.bar(x=x_filtered, y=y_filtered, labels={"x": "Species", "y": "Count"})
+    
+    # Highlight selected species if it exists in the filtered graph
+    if species and species in x_filtered:
         colors = ["#EF553B" if s == species else "#636EFA" for s in x_filtered]
         fig.update_traces(marker_color=colors)
-
-    if species is None:
-        return "Select a species", "", fig
+    else:
+        fig.update_traces(marker_color="#636EFA")
+    # Fetch Wikipedia info only if a species is actually selected
+    if species is None or species not in available_species:
+        return html.P("Select a species to view details.", style={"color": "gray"}), "", fig, dropdown_options
 
     summary = get_wiki_data(species)
     image = get_bird_image(species)
 
-    img_component = html.Img(
-        src=image if image else "https://via.placeholder.com/250",
-        style={
-            "width": "250px",
-            "borderRadius": "10px"
-        }
-    )
+    if image:
+        img_component = html.Img(
+            src=image,
+            style={
+                "width": "250px",
+                "borderRadius": "10px",
+                "objectFit": "cover"
+            }
+        )
+    else:
+        img_component = html.P("No image available", style={"color": "gray"})
 
-    return html.Div([
+    text_component = html.Div([
         html.H3(species),
         html.P(summary, style={"lineHeight": "1.6"})
-    ]), img_component, fig
+    ])
 
+    return text_component, img_component, fig, dropdown_options
 
 if __name__ == "__main__":
     app.run(debug=True)
