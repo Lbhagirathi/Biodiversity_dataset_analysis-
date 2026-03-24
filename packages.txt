@@ -14,4 +14,4 @@ dash-ag-grid
 ploty.express
 wikipedia
 pyarrow
-
+time
