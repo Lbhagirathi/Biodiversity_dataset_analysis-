@@ -8,38 +8,50 @@ import time
 # Fetch info from Wikipedia
 def fetch_status(species):
     try:
-        summary = wikipedia.summary(species, sentences=15, auto_suggest=True).lower()
+        page = wikipedia.page(species, auto_suggest=True)
+        title = page.title
+        summary = page.summary.lower()
+        if title.lower() != species.lower():
+            common_name = title
+        else:
+            common_name = "Unknown"
+
+            if "commonly known as" in summary:
+                try:
+                    common_name = summary.split("commonly known as")[1].split(",")[0].strip()
+                except:
+                    pass
 
         if "extinct" in summary:
-            return "Extinct"
+            return "Extinct" , common_name
 
         elif any(word in summary for word in [
             "endangered", "threatened", "vulnerable", "near threatened"
         ]):
-            return "Endangered"
+            return "Endangered", common_name
 
         elif any(word in summary for word in [
             "introduced", "exotic", "invasive"
         ]):
-            return "Exotic"
+            return "Exotic", common_name
 
         elif any(word in summary for word in [
             "migratory", "migration", "migrates"
         ]):
-            return "Migrating"
+            return "Migrating", common_name
 
         else:
-            return "Common"
+            return "Common", common_name
 
     except wikipedia.exceptions.DisambiguationError:
-        return "Unknown"
+        return "Unknown","Unknown"
 
     except wikipedia.exceptions.PageError:
-        return "Unknown"
+        return "Unknown","Unknown"
 
     except Exception as e:
         print(f"Error for {species}: {e}")
-        return "Unknown"
+        return "Unknown","Unknown"
 
 def build_species_status(input_file, output_file="species_status.parquet"):
     if input_file.endswith(".csv"):
@@ -61,10 +73,11 @@ def build_species_status(input_file, output_file="species_status.parquet"):
     for i, sp in enumerate(species_list):
         print(f"[{i+1}/{total}] {sp}")
 
-        status = fetch_status(sp)
+        status,common_name = fetch_status(sp)
 
         results.append({
             "species": sp,
+            "common_name": common_name,
             "status": status
         })
 
@@ -74,9 +87,9 @@ def build_species_status(input_file, output_file="species_status.parquet"):
 
     # Save both formats
     result_df.to_parquet(output_file, index=False)
-    result_df.to_csv("species_status.csv", index=False)
+    result_df.to_csv("unique_species_all.csv", index=False)
 
     print(f"Saved: {output_file} + species_status.csv")
 
 if __name__ == "__main__":
-    build_species_status("birds.csv")
+    build_species_status("unique_species.csv")
