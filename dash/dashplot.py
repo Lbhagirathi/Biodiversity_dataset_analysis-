@@ -41,27 +41,32 @@ app.layout = html.Div([
     }),
 
     html.Div([
-        html.Div(
-            dcc.Dropdown(
-                id="status-filter",
-                options=[{"label": "All Statuses", "value": "all"}] + [{"label": s, "value": s} for s in status_list],
-                value="all", 
-                clearable=False,
-                placeholder="Filter by Status..."
-            ),
-            style={"width": "30%"}
-        ),
+
         
         # Species Dropdown box
         html.Div(
             dcc.Dropdown(
                 id="species-dropdown",
-                options=[{"label": s, "value": s} for s in species_list],
+                options=[{"label": f"{row['common_name']} ({row['species']})"
+                if pd.notna(row["common_name"]) and row["common_name"] != "Unknown"
+                else row["species"],"value": row["species"]
+                }
+                for _, row in df_merged[["species", "common_name"]].drop_duplicates().iterrows()],
                 placeholder="Select species...",
                 searchable=True
             ),
-            style={"width": "65%"}
-        )
+            style={"width": "75%"}
+        ),
+        html.Div(
+            dcc.Dropdown(
+                id="status-filter",
+                options=[{"label": "No filter", "value": "all"}] + [{"label": s, "value": s} for s in status_list],
+                value="all", 
+                clearable=False,
+                placeholder="Filter by Status..."
+            ),
+            style={"width": "23%"}
+        ),
     ], style={
         **card_style, 
         "display": "flex", 
@@ -167,9 +172,18 @@ def update(species, status):
     y_filtered = filtered_counts.values
     
 
-    available_species = filtered_df["species"].dropna().unique()
-    dropdown_options = [{"label": s, "value": s} for s in available_species]
+    filtered_unique = filtered_df[["species", "common_name"]].drop_duplicates()
 
+    dropdown_options = [
+    {
+        "label": f"{row['common_name']} ({row['species']})"
+        if pd.notna(row["common_name"]) and row["common_name"] != "Unknown"
+        else row["species"],
+        "value": row["species"]
+    }
+    for _, row in filtered_unique.iterrows()]
+
+    available_species = filtered_unique["species"].values
     # rebuilds graph with filtered data  only
     fig = px.bar(x=x_filtered, y=y_filtered, labels={"x": "Species", "y": "Count"})
     
@@ -194,12 +208,20 @@ def update(species, status):
                 "borderRadius": "10px",
                 "objectFit": "cover"
             }
-        )
+        ),
     else:
-        img_component = html.P("No image available", style={"color": "gray"})
+        img_component = html.P("No image available", style={"color": "gray"}),
+
+    row = df_merged[df_merged["species"] == species].iloc[0]
+
+    display_name = (
+        f"{row['common_name']} ({species})"
+        if pd.notna(row["common_name"]) and row["common_name"] != "Unknown"
+        else species
+    )
 
     text_component = html.Div([
-        html.H3(species),
+        html.H3(display_name),
         html.P(summary, style={"lineHeight": "1.6"})
     ])
 
