@@ -7,19 +7,15 @@ import requests
 
 app = Dash()
 
-df = pd.read_csv("./birds.csv").iloc[:, 1:]
-df_species = pd.read_csv("./species_status.csv")
-
-df_merged = df.merge(df_species, on="species", how="left")
+df_merged = pd.read_csv("./merged_final.csv")
 
 if "status" in df_merged.columns:
     df_merged["status"] = df_merged["status"].fillna("Common_Other")
 else:
     df_merged["status"] = "Common_Other"
 
-counts = df_merged["species"].value_counts()
-x_init = counts.index
-y_init = counts.values
+x_init = df_merged["species"]
+y_init = df_merged["count"]
 
 species_list = df_merged["species"].dropna().unique()
 status_list = df_merged["status"].dropna().unique()
@@ -93,10 +89,13 @@ app.layout = html.Div([
 
     # Graph 
     html.Div(
+        html.Div(id="cloudinary-image"),
+        style={**card_style, "margin": "20px 40px", "textAlign": "center"}
+    ),
+    html.Div(
         dcc.Graph(id="graph", figure=bar_graph),
         style={**card_style, "margin": "30px 40px"}
     )
-
 ], style={
     "backgroundColor": "#f5f7fa",
     "minHeight": "100vh",
@@ -156,6 +155,7 @@ def get_bird_image(species):
 @app.callback(
     Output("wiki-text", "children"),
     Output("wiki-image", "children"),
+    Output("cloudinary-image", "children"),
     Output("graph", "figure"),
     Output("species-dropdown", "options"), 
     Input("species-dropdown", "value"),
@@ -167,9 +167,8 @@ def update(species, status):
     else:
         filtered_df = df_merged[df_merged["status"] == status]
 
-    filtered_counts = filtered_df["species"].value_counts()
-    x_filtered = filtered_counts.index
-    y_filtered = filtered_counts.values
+    x_filtered = filtered_df["species"]
+    y_filtered = filtered_df["count"]
     
 
     filtered_unique = filtered_df[["species", "common_name"]].drop_duplicates()
@@ -188,14 +187,14 @@ def update(species, status):
     fig = px.bar(x=x_filtered, y=y_filtered, labels={"x": "Species", "y": "Count"})
     
     # Highlight selected species if it exists in the filtered graph
-    if species and species in x_filtered:
+    if species and species in x_filtered.values:
         colors = ["#EF553B" if s == species else "#636EFA" for s in x_filtered]
         fig.update_traces(marker_color=colors)
     else:
         fig.update_traces(marker_color="#636EFA")
     # Fetch Wikipedia info only if a species is actually selected
     if species is None or species not in available_species:
-        return html.P("Select a species to view details.", style={"color": "gray"}), "", fig, dropdown_options
+        return html.P("Select a species to view details.", style={"color": "gray"}), "","", fig, dropdown_options
 
     summary = get_wiki_data(species)
     image = get_bird_image(species)
@@ -208,12 +207,24 @@ def update(species, status):
                 "borderRadius": "10px",
                 "objectFit": "cover"
             }
-        ),
+        )
     else:
         img_component = html.P("No image available", style={"color": "gray"}),
 
     row = df_merged[df_merged["species"] == species].iloc[0]
+    image_url = row.get("url")
 
+    if pd.notna(image_url):
+        cloud_img = html.Div([
+            html.H4("Species distribution"),
+            html.Img(
+                src=image_url,
+                style={
+                    "width": "300px",
+                    "borderRadius": "10px",
+                    "objectFit": "cover"})])
+    else:
+        cloud_img = html.P("No image available", style={"color": "gray"})
     display_name = (
         f"{row['common_name']} ({species})"
         if pd.notna(row["common_name"]) and row["common_name"] != "Unknown"
@@ -225,7 +236,6 @@ def update(species, status):
         html.P(summary, style={"lineHeight": "1.6"})
     ])
 
-    return text_component, img_component, fig, dropdown_options
-
+    return text_component, img_component, cloud_img, fig, dropdown_options
 if __name__ == "__main__":
     app.run(debug=True)
