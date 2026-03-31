@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 # 1. LOAD DATA
 # =========================
 def load_data(filepath):
+
     print("Loading required columns...")
 
     df = pd.read_parquet(
@@ -32,6 +33,7 @@ def load_data(filepath):
 # 2. SPECIES RICHNESS
 # =========================
 def compute_richness(df):
+
     return df.groupby("grid_cell_id")["species"].nunique()
 
 
@@ -41,9 +43,9 @@ def compute_richness(df):
 def compute_effort(df):
 
     df["event_id"] = (
-    df["recordedBy"].astype(str) + "_" +
-    df["year"].astype(str) + "_" +
-    df["eventDate"].astype(str)
+        df["recordedBy"].astype(str) + "_" +
+        df["year"].astype(str) + "_" +
+        df["eventDate"].astype(str)
     )
 
     return df.groupby("grid_cell_id")["event_id"].nunique()
@@ -73,10 +75,9 @@ def combine_metrics(df, richness, events):
         "events": events
     }).reset_index()
 
-    summary["corrected_richness"] = summary["richness"] / np.log1p(summary["events"])
-
     # Add spatial coordinates
     coords = df.groupby("grid_cell_id")[["lat_bin", "lon_bin"]].first().reset_index()
+
     summary = pd.merge(summary, coords, on="grid_cell_id")
 
     return summary
@@ -89,8 +90,10 @@ def identify_hotspots(summary):
 
     print("\n🔥 Identifying biodiversity hotspots...")
 
-    threshold = summary["corrected_richness"].quantile(0.90)
-    hotspots = summary[summary["corrected_richness"] >= threshold]
+    # Top 10% richness grids
+    threshold = summary["richness"].quantile(0.90)
+
+    hotspots = summary[summary["richness"] >= threshold]
 
     print("Hotspot threshold:", threshold)
     print("Number of hotspot grid cells:", len(hotspots))
@@ -107,27 +110,18 @@ def plot_maps(summary, hotspots):
 
     import geopandas as gpd
 
-    # Convert points
     gdf = gpd.GeoDataFrame(
         summary,
         geometry=gpd.points_from_xy(summary["lon_bin"], summary["lat_bin"]),
         crs="EPSG:4326"
     )
 
-    # =========================
-    # LOAD HIGH-RES DENMARK MAP (GADM)
-    # =========================
     denmark = gpd.read_file("data/gadm41_DNK_0.shp")
 
-    # Ensure same CRS
     gdf = gdf.to_crs(denmark.crs)
 
-    # =========================
-    # PLOT
-    # =========================
-    fig, ax = plt.subplots(figsize=(8, 8))
+    fig, ax = plt.subplots(figsize=(8,8))
 
-    # Plot boundary ONLY (so colors are visible)
     denmark.plot(
         ax=ax,
         color="none",
@@ -135,18 +129,17 @@ def plot_maps(summary, hotspots):
         linewidth=1
     )
 
-    # Plot richness (with color scale)
     gdf.plot(
         ax=ax,
-        column="corrected_richness",
+        column="richness",
         cmap="viridis",
         markersize=8,
         legend=True,
         alpha=0.8
     )
 
-    # Highlight hotspots
     hotspot_gdf = gdf[gdf["grid_cell_id"].isin(hotspots["grid_cell_id"])]
+
     hotspot_gdf.plot(
         ax=ax,
         color="red",
@@ -159,26 +152,22 @@ def plot_maps(summary, hotspots):
     plt.legend()
 
     plt.savefig("results/plots/hotspots_map.png", dpi=300)
+
     plt.show()
+
+
 # =========================
 # 8. BASIC VISUALIZATION
 # =========================
 def plot_results(summary):
 
     plt.figure()
+
     plt.scatter(range(len(summary)), summary["richness"], s=5)
-    plt.title("Raw Richness")
+
+    plt.title("Species Richness per Grid Cell")
+
     plt.savefig("results/plots/raw_richness.png")
-
-    plt.figure()
-    plt.scatter(range(len(summary)), summary["corrected_richness"], s=5)
-    plt.title("Corrected Richness")
-    plt.savefig("results/plots/corrected_richness.png")
-
-    plt.figure()
-    plt.scatter(summary["richness"], summary["corrected_richness"], s=5)
-    plt.title("Raw vs Corrected")
-    plt.savefig("results/plots/comparison.png")
 
     plt.show()
 
@@ -190,14 +179,12 @@ def compute_stats(df, summary, occupancy, restricted):
 
     print("\n===== DATASET STATS =====")
 
-    # Richness extremes
     max_rich = summary.loc[summary["richness"].idxmax()]
     min_rich = summary.loc[summary["richness"].idxmin()]
 
     print("\nHighest richness grid:\n", max_rich)
     print("\nLowest richness grid:\n", min_rich)
 
-    # Abundance
     abundance = df["species"].value_counts()
 
     print("\nTop species:\n", abundance.head())
@@ -209,6 +196,7 @@ def compute_stats(df, summary, occupancy, restricted):
     print("\n🌍 Loading IUCN data...")
 
     iucn = pd.read_excel("data/iucn_status.xlsx")
+
     iucn.columns = iucn.columns.str.strip()
 
     iucn = iucn.rename(columns={
@@ -217,9 +205,16 @@ def compute_stats(df, summary, occupancy, restricted):
     })
 
     restricted_df = restricted.reset_index()
+
     restricted_df.columns = ["species", "range_size"]
 
-    merged = pd.merge(restricted_df, iucn[["species", "status"]], on="species", how="left")
+    merged = pd.merge(
+        restricted_df,
+        iucn[["species", "status"]],
+        on="species",
+        how="left"
+    )
+
     merged = merged.dropna(subset=["status"])
 
     endangered = merged[merged["status"].isin(["CR", "EN", "VU"])]
@@ -241,6 +236,7 @@ def main():
     df = load_data(filepath)
 
     richness = compute_richness(df)
+
     events = compute_effort(df)
 
     occupancy, restricted = compute_range_restriction(df)
@@ -250,6 +246,7 @@ def main():
     hotspots = identify_hotspots(summary)
 
     plot_results(summary)
+
     plot_maps(summary, hotspots)
 
     compute_stats(df, summary, occupancy, restricted)

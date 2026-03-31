@@ -32,10 +32,8 @@ def load_denmark():
 
     denmark = gpd.read_file("data/gadm41_DNK_0.shp")
 
-    # 🔥 CRITICAL FIX: ensure same CRS as lat/lon
+    # Ensure same CRS
     denmark = denmark.to_crs("EPSG:4326")
-
-    print("Denmark CRS:", denmark.crs)
 
     return denmark
 
@@ -47,7 +45,7 @@ def plot_species_distributions(df, denmark):
 
     print("\n📍 Generating species distribution maps...")
 
-    output_dir = "results/species_maps_raw_2"
+    output_dir = "results/species_maps_raw_beautiful"
     os.makedirs(output_dir, exist_ok=True)
 
     species_list = df["species"].unique()
@@ -61,49 +59,59 @@ def plot_species_distributions(df, denmark):
         if len(sp_df) == 0:
             continue
 
-        # Optional: downsample very large datasets
+        # Downsample extremely large species
         if len(sp_df) > 50000:
             sp_df = sp_df.sample(50000, random_state=42)
 
         # =========================
         # PLOT
         # =========================
-        fig, ax = plt.subplots(figsize=(6, 6))
+        fig, ax = plt.subplots(figsize=(7,7))
 
-        # ✅ Denmark outline
+        # 🌊 Ocean background
+        ax.set_facecolor("#cfe8f3")
+
+        # 🟩 Denmark land
         denmark.plot(
             ax=ax,
-            color="lightgrey",
+            color="#f2efe9",
             edgecolor="black",
             linewidth=0.8,
             zorder=1
         )
 
-        # ✅ Species points
+        # 🔵 Species occurrences
         ax.scatter(
             sp_df["decimalLongitude"],
             sp_df["decimalLatitude"],
-            s=1.5,          # 🔥 small markers
-            alpha=0.4,
+            s=2,
+            color="#5dade2",   # light blue
+            alpha=0.35,
+            edgecolors="none",
             zorder=2
         )
 
-        # Zoom to Denmark
+        # Denmark zoom
         ax.set_xlim(7, 13)
         ax.set_ylim(54, 58)
 
-        ax.set_title(sp, fontsize=10)
+        # Clean look
+        ax.set_title(sp, fontsize=11, fontweight="bold")
         ax.set_axis_off()
-        ax.set_aspect('auto')
 
         # =========================
         # SAVE
         # =========================
         filename = sp.replace(" ", "_").replace("/", "_")
-        plt.savefig(f"{output_dir}/{filename}.png", dpi=200)
+
+        plt.savefig(
+            f"{output_dir}/{filename}.png",
+            dpi=250,
+            bbox_inches="tight"
+        )
+
         plt.close()
 
-        # Progress log
         if i % 20 == 0:
             print(f"Processed {i}/{len(species_list)} species")
 
