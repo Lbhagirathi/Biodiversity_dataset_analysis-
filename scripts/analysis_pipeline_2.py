@@ -179,7 +179,7 @@ def save_outputs(summary, occupancy, restricted, temporal):
 # =========================
 def main():
 
-    filepath = "data/dofbasen_birds_filtered.parquet"
+    filepath = "data/grid_assigned.parquet"
 
     print("Loading data...")
     df = load_data(filepath)
