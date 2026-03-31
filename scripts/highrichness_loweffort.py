@@ -21,7 +21,7 @@ summary = pd.DataFrame({
 })
 
 # Define thresholds
-rich_threshold = summary["richness"].quantile(0.90)
+rich_threshold = summary["richness"].quantile(0.85)
 effort_threshold = summary["effort"].quantile(0.25)
 
 targets = summary[

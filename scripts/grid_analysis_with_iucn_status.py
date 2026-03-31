@@ -69,7 +69,7 @@ def identify_hotspots(summary):
 
     print("\n🔥 Identifying biodiversity hotspots...")
 
-    threshold = summary["richness"].quantile(0.90)
+    threshold = summary["richness"].quantile(0.85)
 
     hotspots = summary[summary["richness"] >= threshold]
 
@@ -95,25 +95,32 @@ def plot_maps(summary, hotspots):
     )
 
     denmark = gpd.read_file("data/gadm41_DNK_0.shp")
-
     denmark = denmark.to_crs("EPSG:4326")
-    gdf = gdf.to_crs("EPSG:4326")
 
-    land_gdf = gpd.clip(gdf, denmark)
-
-    print("Total points:", len(gdf))
-    print("Land points:", len(land_gdf))
+    print("Total grid cells:", len(gdf))
 
     fig, ax = plt.subplots(figsize=(10,10))
 
+    # =========================
+    # OCEAN BACKGROUND
+    # =========================
+    ax.set_facecolor("#b7dff5")   # light blue ocean
+
+    # =========================
+    # DENMARK LAND
+    # =========================
     denmark.plot(
         ax=ax,
         color="#f0f0f0",
         edgecolor="black",
-        linewidth=0.8
+        linewidth=0.8,
+        zorder=1
     )
 
-    land_gdf.plot(
+    # =========================
+    # ALL GRID CELLS (LAND + SEA)
+    # =========================
+    gdf.plot(
         ax=ax,
         column="richness",
         cmap="viridis",
@@ -125,23 +132,31 @@ def plot_maps(summary, hotspots):
         },
         alpha=0.9,
         edgecolor="black",
-        linewidth=0.2
+        linewidth=0.2,
+        zorder=2
     )
 
-    hotspot_land = land_gdf[
-        land_gdf["grid_cell_id"].isin(hotspots["grid_cell_id"])
+    # =========================
+    # HOTSPOTS
+    # =========================
+    hotspot_gdf = gdf[
+        gdf["grid_cell_id"].isin(hotspots["grid_cell_id"])
     ]
 
-    if len(hotspot_land) > 0:
-        hotspot_land.plot(
+    if len(hotspot_gdf) > 0:
+        hotspot_gdf.plot(
             ax=ax,
             color="red",
             markersize=200,
             edgecolor="black",
             linewidth=0.5,
-            label="Hotspots"
+            label="Hotspots",
+            zorder=3
         )
 
+    # =========================
+    # MAP SETTINGS
+    # =========================
     ax.set_xlim(7,13)
     ax.set_ylim(54,58)
 
