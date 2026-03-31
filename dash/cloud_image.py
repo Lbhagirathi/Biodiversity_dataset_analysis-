@@ -7,10 +7,8 @@ cloudinary.config(
     api_key="(-_-)",
     api_secret="(-_-)"
 )
-
 all_resources = []
 next_cursor = None
-
 while True:
     response = cloudinary.api.resources(
         type="upload",
