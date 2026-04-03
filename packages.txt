@@ -12,6 +12,7 @@ html
 Input
 Output
 dash-ag-grid
+plotly.graph_objects
 ploty.express
 wikipedia
 pyarrow
