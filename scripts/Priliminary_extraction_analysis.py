@@ -114,53 +114,6 @@ def combine_metrics(richness, records, events):
 
 
 # =========================
-# 9. PLOTTING
-# =========================
-def plot_maps(summary):
-
-    plt.figure()
-
-    plt.scatter(
-        summary["lon_bin"],
-        summary["lat_bin"],
-        c=summary["richness"],
-        s=5
-    )
-
-    plt.colorbar(label="Species Richness")
-
-    plt.title("Spatial Species Richness")
-
-    plt.xlabel("Longitude")
-    plt.ylabel("Latitude")
-
-    plt.savefig("results/plots/spatial_richness.png", dpi=300)
-
-    plt.show()
-
-
-# =========================
-# 10. TEMPORAL PLOT
-# =========================
-def plot_temporal(temporal_df):
-
-    yearly = temporal_df.groupby("year")["species"].mean()
-
-    plt.figure()
-
-    yearly.plot()
-
-    plt.xlabel("Year")
-    plt.ylabel("Mean Richness")
-
-    plt.title("Temporal Change in Richness")
-
-    plt.savefig("results/plots/temporal_richness.png", dpi=300)
-
-    plt.show()
-
-
-# =========================
 # 11. SAVE OUTPUTS
 # =========================
 def save_outputs(summary, occupancy, restricted, temporal):
@@ -205,9 +158,6 @@ def main():
     print("Combining...")
     summary = combine_metrics(richness, records, events)
 
-    print("Plotting...")
-    plot_maps(summary)
-    plot_temporal(temporal)
 
     print("Saving...")
     save_outputs(summary, occupancy, restricted, temporal)

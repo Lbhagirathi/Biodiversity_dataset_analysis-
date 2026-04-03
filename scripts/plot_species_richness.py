@@ -1,6 +1,7 @@
 import pandas as pd
 import geopandas as gpd
 import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
 
 # =========================
 # FILE PATHS
@@ -8,6 +9,8 @@ import matplotlib.pyplot as plt
 GRID_PARQUET_PATH = "data/grid_assigned.parquet"
 GRID_GPKG_PATH    = "denmark_grid.gpkg"
 ADMIN_GPKG_PATH   = "denmark_admin.gpkg"
+
+HOTSPOT_THRESHOLD = 306   # Fixed hotspot threshold
 
 
 # =========================
@@ -68,7 +71,7 @@ def compute_richness(df):
 # =========================
 def identify_hotspots(grid_richness):
 
-    threshold = grid_richness["species_richness"].quantile(0.85)
+    threshold = HOTSPOT_THRESHOLD
 
     hotspots = grid_richness[
         grid_richness["species_richness"] >= threshold
@@ -97,11 +100,6 @@ def attach_richness(grid_gdf, richness):
 
     return grid_richness
 
-
-# =========================
-# PLOT MAP
-# =========================
-from matplotlib.lines import Line2D
 
 # =========================
 # PLOT MAP
@@ -143,7 +141,7 @@ def plot_richness(grid_richness, denmark, hotspots):
     )
 
     # -------------------------
-    # Hotspot overlay (glow)
+    # Hotspot overlay
     # -------------------------
     hotspot_cells = grid_richness[
         grid_richness["grid_cell_id"].isin(hotspots["grid_cell_id"])
@@ -184,7 +182,7 @@ def plot_richness(grid_richness, denmark, hotspots):
             markerfacecolor='red',
             markersize=12,
             alpha=0.5,
-            label="Hotspots (top 15% richness)"
+            label="Hotspots (≥306 species)"
         )
     ]
 

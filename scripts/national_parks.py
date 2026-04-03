@@ -8,7 +8,7 @@ import os
 # SETTINGS
 # =========================
 DATA_PATH = "data/grid_assigned.parquet"
-SHAPEFILE = "data/gadm41_DNK_0.shp"
+SHAPEFILE = "denmark_grid.gpkg"
 
 OUTPUT_TABLE = "results/tables/park_biodiversity_summary.csv"
 OUTPUT_MAP_FOLDER = "results/plots/parks"
@@ -141,59 +141,6 @@ def compute_metrics(park_df):
 
 
 # =========================
-# 6. PLOT RAW DISTRIBUTION
-# =========================
-def plot_park_maps(park_df):
-
-    print("Generating park occurrence maps...")
-
-    denmark = gpd.read_file(SHAPEFILE).to_crs("EPSG:4326")
-
-    for park in park_df["park"].unique():
-
-        sub = park_df[park_df["park"] == park]
-
-        if len(sub) == 0:
-            continue
-
-        fig, ax = plt.subplots(figsize=(6,6))
-
-        # Ocean background
-        ax.set_facecolor("#b7dff5")
-
-        # Denmark land
-        denmark.plot(
-            ax=ax,
-            color="#f0f0f0",
-            edgecolor="black",
-            linewidth=0.8
-        )
-
-        # Occurrence points
-        ax.scatter(
-            sub["decimalLongitude"],
-            sub["decimalLatitude"],
-            s=2,
-            alpha=0.4,
-            color="dodgerblue"
-        )
-
-        ax.set_xlim(7,13)
-        ax.set_ylim(54,58)
-
-        ax.set_title(f"{park} - Bird Occurrences")
-
-        ax.set_axis_off()
-
-        filename = f"{OUTPUT_MAP_FOLDER}/{park}.png"
-
-        plt.savefig(filename, dpi=300)
-        plt.close()
-
-        print("Saved:", filename)
-
-
-# =========================
 # MAIN
 # =========================
 def main():
@@ -207,8 +154,6 @@ def main():
     park_df = extract_park_data(df, park_grid_map)
 
     compute_metrics(park_df)
-
-    plot_park_maps(park_df)
 
     print("\n✅ NATIONAL PARK BIODIVERSITY ANALYSIS COMPLETE")
 
