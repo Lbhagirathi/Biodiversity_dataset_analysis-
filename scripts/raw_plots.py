@@ -30,7 +30,7 @@ def load_denmark():
 
     print("Loading Denmark shapefile...")
 
-    denmark = gpd.read_file("data/gadm41_DNK_0.shp")
+    denmark = gpd.read_file("denmark_admin.gpkg").dissolve()  # admin boundary
 
     # Ensure same CRS
     denmark = denmark.to_crs("EPSG:4326")
@@ -92,8 +92,8 @@ def plot_species_distributions(df, denmark):
         )
 
         # Denmark zoom
-        ax.set_xlim(7, 13)
-        ax.set_ylim(54, 58)
+        # ax.set_xlim(7, 13)
+        # ax.set_ylim(54, 58)
 
         # Clean look
         ax.set_title(sp, fontsize=11, fontweight="bold")

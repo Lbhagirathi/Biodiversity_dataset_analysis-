@@ -94,7 +94,7 @@ def plot_maps(summary, hotspots):
         crs="EPSG:4326"
     )
 
-    denmark = gpd.read_file("data/gadm41_DNK_0.shp")
+    denmark = gpd.read_file("denmark_grid.gpkg")
     denmark = denmark.to_crs("EPSG:4326")
 
     print("Total grid cells:", len(gdf))
