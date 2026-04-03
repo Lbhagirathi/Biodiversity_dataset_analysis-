@@ -1,0 +1,511 @@
+species,common_name,status
+Anthus pratensis,Meadow pipit,Migrating
+Phoenicurus phoenicurus,White-breasted waterhen,Common
+Sylvia atricapilla,Eurasian blackcap,Common
+Circus aeruginosus,Western marsh harrier,Migrating
+Columba livia,Rock dove,Common
+Hirundo rustica,Barn swallow,Migrating
+Sturnus vulgaris,Common starling,Exotic
+Porzana porzana,Porzana,Common
+Pernis apivorus,European honey buzzard,Common
+Charadrius hiaticula,Common ringed plover,Common
+Streptopelia decaocto,Eurasian collared dove,Exotic
+Sylvia borin,Garden warbler,Migrating
+Larus marinus,Great black-backed gull,Common
+Anser anser,Unknown,Unknown
+Acrocephalus palustris,Marsh warbler,Extinct
+Periparus ater,Coal tit,Common
+Pavo cristatus,Indian peafowl,Exotic
+Acrocephalus schoenobaenus,Sedge warbler,Migrating
+Platalea leucorodia,Eurasian spoonbill,Migrating
+Vanellus vanellus,Northern lapwing,Common
+Mergus serrator,Red-breasted merganser,Endangered
+Emberiza calandra,Corn bunting,Common
+Linaria cannabina,Common linnet,Common
+Tadorna tadorna,Common shelduck,Extinct
+Troglodytes troglodytes,Eurasian wren,Migrating
+Ficedula hypoleuca,European pied flycatcher,Migrating
+Numenius phaeopus,Eurasian whimbrel,Common
+Lanius collurio,Red-backed shrike,Migrating
+Coloeus monedula,Western jackdaw,Common
+Phasianus colchicus,Common pheasant,Exotic
+Pyrrhula pyrrhula,Eurasian bullfinch,Common
+Mergus merganser,Common merganser,Common
+Bucephala clangula,Common goldeneye,Common
+Chloris chloris,European greenfinch,Exotic
+Grus grus,Unknown,Unknown
+Turdus merula,Common blackbird,Exotic
+Haliaeetus albicilla,White-tailed eagle,Extinct
+Anser albifrons,Greater white-fronted goose,Migrating
+Cygnus cygnus,Swan,Extinct
+Spinus spinus,Unknown,Unknown
+Alauda arvensis,Eurasian skylark,Exotic
+Garrulus glandarius,Eurasian jay,Common
+Haematopus ostralegus,Eurasian oystercatcher,Common
+Turdus philomelos,Song thrush,Endangered
+Loxia curvirostra,Red crossbill,Common
+Cygnus olor,Mute swan,Exotic
+Recurvirostra avosetta,Pied avocet,Migrating
+Phylloscopus collybita,Common chiffchaff,Extinct
+Larus argentatus,European herring gull,Common
+Buteo buteo,Common buzzard,Common
+Mareca penelope,Eurasian wigeon,Common
+Ardea cinerea,Unknown,Unknown
+Fulica atra,Eurasian coot,Common
+Gavia stellata,Red-throated loon,Migrating
+Pica pica,Unknown,Unknown
+Anas platyrhynchos,Mallard,Extinct
+Morus bassanus,Northern gannet,Migrating
+Larus canus,Common gull,Common
+Sylvia curruca,Lesser whitethroat,Migrating
+Calidris alpina,Dunlin,Common
+Columba palumbus,Common wood pigeon,Common
+Melanitta nigra,Common scoter,Common
+Mareca strepera,Gadwall,Common
+Strix aluco,Tawny owl,Migrating
+Tyto alba,Western barn owl,Endangered
+Motacilla flava,Western yellow wagtail,Migrating
+Falco tinnunculus,Common kestrel,Common
+Apus apus,Common swift,Endangered
+Emberiza schoeniclus,Common reed bunting,Common
+Certhia brachydactyla,Short-toed treecreeper,Common
+Poecile palustris,Marsh tit,Common
+Aegithalos caudatus,Long-tailed tit,Common
+Coccothraustes coccothraustes,Hawfinch,Common
+Tringa totanus,Common redshank,Common
+Numenius arquata,Eurasian curlew,Common
+Ardea alba,Great egret,Common
+Calidris alba,Sanderling,Migrating
+Sylvia communis,Common whitethroat,Migrating
+Accipiter nisus,Eurasian sparrowhawk,Common
+Mergellus albellus,Smew,Common
+Cyanistes caeruleus,Eurasian blue tit,Migrating
+Phalacrocorax carbo,Great cormorant,Common
+Somateria mollissima,Common eider,Common
+Falco columbarius,Merlin (bird),Migrating
+Motacilla alba,White wagtail,Migrating
+Pluvialis squatarola,Grey plover,Common
+Anas crecca,Eurasian teal,Migrating
+Branta canadensis,Canada goose,Exotic
+Phalaropus lobatus,Red-necked phalarope,Migrating
+Aythya ferina,Common pochard,Common
+Milvus milvus,Unknown,Unknown
+Sternula albifrons,Little tern,Common
+Thalasseus sandvicensis,Sandwich tern,Common
+Sterna hirundo,Common tern,Endangered
+Aythya fuligula,Tufted duck,Migrating
+Hydrocoloeus minutus,Little gull,Common
+Uria aalge,Common murre,Migrating
+Alcedo atthis,Common kingfisher,Migrating
+Calidris ferruginea,Curlew sandpiper,Endangered
+Saxicola rubicola,European stonechat,Common
+Chroicocephalus ridibundus,Black-headed gull,Migrating
+Pluvialis apricaria,European golden plover,Common
+Circus cyaneus,Hen harrier,Migrating
+Dendrocopos major,Great spotted woodpecker,Common
+Parus major,Unknown,Unknown
+Gallinago gallinago,Common snipe,Common
+Acanthis flammea,Redpoll,Common
+Tachybaptus ruficollis,Little grebe,Common
+Luscinia luscinia,Common nightingale,Common
+Buteo lagopus,Rough-legged buzzard,Migrating
+Calidris pugnax,Ruff (bird),Migrating
+Spatula clypeata,Northern shoveler,Migrating
+Tringa ochropus,Green sandpiper,Common
+Cuculus canorus,Common cuckoo,Common
+Fringilla montifringilla,Brambling,Migrating
+Branta leucopsis,Barnacle goose,Common
+Regulus ignicapilla,Common firecrest,Migrating
+Prunella modularis,Dunnock,Exotic
+Fulmarus glacialis,Northern fulmar,Common
+Carduelis carduelis,European goldfinch,Exotic
+Fringilla coelebs,Eurasian chaffinch,Common
+Anas acuta,Northern pintail,Endangered
+Regulus regulus,Goldcrest,Common
+Falco peregrinus,Peregrine falcon,Endangered
+Calidris maritima,Purple sandpiper,Common
+Anthus spinoletta,Water pipit,Common
+Aythya marila,Greater scaup,Migrating
+Corvus corax,Common raven,Common
+Turdus pilaris,Fieldfare,Migrating
+Corvus frugilegus,Rook (bird),Common
+Rallus aquaticus,Water rail,Endangered
+Erithacus rubecula,European robin,Migrating
+Spatula querquedula,Garganey,Migrating
+Actitis hypoleucos,Common sandpiper,Common
+Tringa nebularia,Common greenshank,Common
+Panurus biarmicus,Bearded reedling,Common
+Arenaria interpres,Ruddy turnstone,Migrating
+Passer montanus,Eurasian tree sparrow,Endangered
+Anthus trivialis,Tree pipit,Common
+Crex crex,Unknown,Unknown
+Tringa glareola,Wood sandpiper,Common
+Rissa tridactyla,Black-legged kittiwake,Common
+Aquila chrysaetos,Golden eagle,Common
+Emberiza citrinella,Yellowhammer,Exotic
+Tringa erythropus,Spotted redshank,Migrating
+Podiceps grisegena,Red-necked grebe,Migrating
+Melanitta fusca,Velvet scoter,Common
+Delichon urbicum,Western house martin,Endangered
+Linaria flavirostris,Twite,Migrating
+Larus fuscus,Lesser black-backed gull,Migrating
+Stercorarius skua,Great skua,Common
+Cepphus grylle,Black guillemot,Common
+Larus cachinnans,Caspian gull,Common
+Passer domesticus,House sparrow,Common
+Lymnocryptes minimus,Jack snipe,Common
+Lophophanes cristatus,Crested tit,Common
+Gallinula chloropus,Common moorhen,Common
+Limosa limosa,Black-tailed godwit,Endangered
+Calidris canutus,Red knot,Common
+Hippolais icterina,Icterine warbler,Migrating
+Riparia riparia,Sand martin,Migrating
+Gavia arctica,Black-throated loon,Migrating
+Perdix perdix,Grey partridge,Common
+Falco subbuteo,Eurasian hobby,Common
+Cygnus columbianus,Tundra swan,Common
+Lullula arborea,Woodlark,Migrating
+Phylloscopus inornatus,Yellow-browed warbler,Migrating
+Anser brachyrhynchus,Pink-footed goose,Migrating
+Aythya nyroca,Ferruginous duck,Common
+Stercorarius parasiticus,Parasitic jaeger,Migrating
+Hydroprogne caspia,Caspian tern,Common
+Podiceps cristatus,Great crested grebe,Common
+Scolopax rusticola,Eurasian woodcock,Endangered
+Turdus viscivorus,Mistle thrush,Common
+Ichthyaetus melanocephalus,Mediterranean gull,Common
+Phylloscopus trochilus,Willow warbler,Migrating
+Sterna paradisaea,Arctic tern,Migrating
+Calidris temminckii,Temminck's stint,Migrating
+Locustella naevia,Common grasshopper warbler,Migrating
+Botaurus stellaris,Eurasian bittern,Endangered
+Sitta europaea,Eurasian nuthatch,Common
+Muscicapa striata,Spotted flycatcher,Migrating
+Oenanthe oenanthe,Northern wheatear,Migrating
+Anser rossii,Ross's goose,Migrating
+Charadrius alexandrinus,Kentish plover,Migrating
+Cinclus cinclus,White-throated dipper,Common
+Motacilla cinerea,Grey wagtail,Common
+Asio flammeus,Short-eared owl,Common
+Chlidonias niger,Black tern,Common
+Picus viridis,European green woodpecker,Common
+Columba oenas,Stock dove,Migrating
+Himantopus himantopus,Black-winged stilt,Common
+Acrocephalus scirpaceus,Common reed warbler,Migrating
+Luscinia svecica,Bluethroat,Migrating
+Plectrophenax nivalis,Snow bunting,Common
+Alca torda,Razorbill,Extinct
+Anthus petrosus,European rock pipit,Migrating
+Alle alle,Unknown,Unknown
+Certhia familiaris,Eurasian treecreeper,Endangered
+Clangula hyemalis,Long-tailed duck,Common
+Apus pallidus,Pallid swift,Common
+Pandion haliaetus,Osprey,Common
+Turdus iliacus,Redwing,Common
+Asio otus,Unknown,Unknown
+Anser fabalis,Taiga bean goose,Migrating
+Coturnix coturnix,Common quail,Migrating
+Phylloscopus sibillatrix,Wood warbler,Migrating
+Calidris minuta,Little stint,Common
+Limosa lapponica,Bar-tailed godwit,Migrating
+Streptopelia orientalis,Oriental turtle dove,Common
+Egretta garzetta,Little egret,Extinct
+Cygnus atratus,Black swan,Exotic
+Carpodacus erythrinus,Common rosefinch,Common
+Lanius excubitor,Great grey shrike,Common
+Milvus migrans,Black kite,Migrating
+Caprimulgus europaeus,European nightjar,Migrating
+Netta rufina,Red-crested pochard,Migrating
+Ciconia ciconia,White stork,Common
+Saxicola rubetra,Whinchat,Migrating
+Dryobates minor,Lesser spotted woodpecker,Common
+Bombycilla garrulus,Bohemian waxwing,Common
+Calidris melanotos,Pectoral sandpiper,Migrating
+Branta bernicla,Brant (goose),Common
+Podiceps nigricollis,Black-necked grebe,Migrating
+Aythya collaris,Ring-necked duck,Common
+Gavia immer,Common loon,Endangered
+Turdus torquatus,Ring ouzel,Migrating
+Loxia pytyopsittacus,Parrot crossbill,Common
+Eremophila alpestris,Horned lark,Common
+Acrocephalus dumetorum,Blyth's reed warbler,Common
+Dryocopus martius,Black woodpecker,Migrating
+Oenanthe hispanica,Western black-eared wheatear,Migrating
+Melanitta americana,Black scoter,Endangered
+Phoenicurus ochruros,Black redstart,Common
+Jynx torquilla,Eurasian wryneck,Migrating
+Locustella fluviatilis,River warbler,Migrating
+Oriolus oriolus,Eurasian golden oriole,Common
+Glareola maldivarum,Oriental pratincole,Common
+Anser serrirostris,Tundra bean goose,Migrating
+Porzana pusilla,Baillon's crake,Common
+Ficedula parva,Red-breasted flycatcher,Migrating
+Aquila nipalensis,Steppe eagle,Endangered
+Remiz pendulinus,Eurasian penduline tit,Migrating
+Pastor roseus,Rosy starling,Common
+Somateria spectabilis,King eider,Common
+Nucifraga caryocatactes,Northern nutcracker,Common
+Phylloscopus proregulus,Pallas's leaf warbler,Migrating
+Circus pygargus,Montagu's harrier,Migrating
+Stercorarius longicaudus,Long-tailed jaeger,Common
+Larus michahellis,Yellow-legged gull,Common
+Podiceps auritus,Horned grebe,Endangered
+Phylloscopus humei,Hume's leaf warbler,Migrating
+Alopochen aegyptiaca,Egyptian goose,Exotic
+Charadrius morinellus,Eurasian dotterel,Migrating
+Oxyura leucocephala,White-headed duck,Endangered
+Aix galericulata,Mandarin duck,Exotic
+Anthus cervinus,Red-throated pipit,Common
+Ciconia nigra,Black stork,Endangered
+Acrocephalus arundinaceus,Great reed warbler,Migrating
+Poecile montanus,Willow tit,Common
+Falco rusticolus,Gyrfalcon,Common
+Anthus richardi,Richard's pipit,Common
+Corvus corone,Carrion crow,Common
+Larus hyperboreus,Glaucous gull,Common
+Gavia adamsii,Yellow-billed loon,Common
+Falco vespertinus,Red-footed falcon,Migrating
+Pluvialis dominica,American golden plover,Common
+Anser caerulescens,Snow goose,Common
+Phalaropus tricolor,Wilson's phalarope,Migrating
+Bubo bubo,Eurasian eagle-owl,Common
+Plegadis falcinellus,Glossy ibis,Common
+Dendrocoptes medius,Middle spotted woodpecker,Common
+Calcarius lapponicus,Lapland longspur,Common
+Circus macrourus,Pallid harrier,Common
+Sylvia nisoria,Barred warbler,Migrating
+Gyps fulvus,Eurasian griffon vulture,Common
+Falco naumanni,Lesser kestrel,Common
+Calidris subruficollis,Buff-breasted sandpiper,Common
+Merops apiaster,European bee-eater,Migrating
+Tringa melanoleuca,Greater yellowlegs,Common
+Falco sparverius,American kestrel,Common
+Melanitta perspicillata,Surf scoter,Common
+Phalaropus fulicarius,Red phalarope,Migrating
+Microcarbo pygmaeus,Pygmy cormorant,Migrating
+Aegolius funereus,Boreal owl,Common
+Oxyura jamaicensis,Ruddy duck,Exotic
+Tadorna ferruginea,Ruddy shelduck,Migrating
+Calidris falcinellus,Broad-billed sandpiper,Common
+Serinus serinus,European serin,Common
+Saxicola maurus,Siberian stonechat,Common
+Calidris bairdii,Baird's sandpiper,Common
+Pinicola enucleator,Pine grosbeak,Common
+Oceanodroma leucorhoa,Leach's storm petrel,Common
+Curruca subalpina,Moltoni's warbler,Common
+Cairina moschata,Muscovy duck,Common
+Curruca cantillans,Eastern subalpine warbler,Common
+Anser indicus,Bar-headed goose,Common
+Locustella luscinioides,Savi's warbler,Migrating
+Aquila pomarina,Lesser spotted eagle,Common
+Phylloscopus fuscatus,Dusky warbler,Migrating
+Aquila fasciata,Bonelli's eagle,Extinct
+Bubulcus ibis,Western cattle egret,Migrating
+Burhinus oedicnemus,Eurasian stone-curlew,Common
+Falco cherrug,Saker falcon,Migrating
+Glareola pratincola,Collared pratincole,Common
+Chlidonias leucopterus,White-winged tern,Common
+Puffinus griseus,Sooty shearwater,Common
+Fratercula arctica,Atlantic puffin,Endangered
+Bucephala albeola,Bufflehead,Migrating
+Larus glaucoides,Iceland gull,Common
+Branta ruficollis,Red-breasted goose,Endangered
+Chlidonias hybrida,Whiskered tern,Common
+Surnia ulula,Northern hawk-owl,Migrating
+Mareca americana,American wigeon,Common
+Elanus caeruleus,Black-winged kite,Migrating
+Puffinus puffinus,Unknown,Unknown
+Galerida cristata,Crested lark,Migrating
+Zonotrichia albicollis,White-throated sparrow,Common
+Upupa epops,Eurasian hoopoe,Migrating
+Gavia pacifica,Pacific loon,Common
+Setophaga aestiva,Yellow warbler,Common
+Lophodytes cucullatus,Hooded merganser,Common
+Melanitta stejnegeri,Stejneger's scoter,Common
+Phalacrocorax aristotelis,European shag,Common
+Melopsittacus undulatus,Budgerigar,Common
+Stercorarius pomarinus,Pomarine jaeger,Common
+Xema sabini,Sabine's gull,Common
+Turdus atrogularis,Black-throated thrush,Migrating
+Hieraaetus pennatus,Booted eagle,Migrating
+Passerina cyanea,Indigo bunting,Migrating
+Grus canadensis,Sandhill crane,Common
+Phylloscopus schwarzi,Radde's warbler,Migrating
+Prunella montanella,Siberian accentor,Migrating
+Luscinia megarhynchos,Common nightingale,Common
+Emberiza hortulana,Ortolan bunting,Common
+Cisticola juncidis,Zitting cisticola,Common
+Lanius senator,Woodchat shrike,Common
+Motacilla tschutschensis,Eastern yellow wagtail,Migrating
+Athene noctua,Little owl,Exotic
+Emberiza pusilla,Little bunting,Common
+Aythya affinis,Lesser scaup,Migrating
+Nycticorax nycticorax,Black-crowned night heron,Common
+Phylloscopus bonelli,Western Bonelli's warbler,Migrating
+Gypaetus barbatus,Bearded vulture,Endangered
+Anser erythropus,Lesser white-fronted goose,Common
+Aquila clanga,Greater spotted eagle,Endangered
+Psittacula krameri,Rose-ringed parakeet,Exotic
+Sula leucogaster,Brown booby,Common
+Geronticus eremita,Northern bald ibis,Extinct
+Tringa flavipes,Lesser yellowlegs,Common
+Sibirionetta formosa,Baikal teal,Common
+Circaetus gallicus,Short-toed snake eagle,Common
+Monticola saxatilis,Common rock thrush,Endangered
+Actitis macularius,Spotted sandpiper,Common
+Streptopelia turtur,European turtle dove,Endangered
+Phylloscopus trochiloides,Greenish warbler,Migrating
+Lanius minor,Lanius,Migrating
+Apus caffer,White-rumped swift,Common
+Gallinago media,Great snipe,Migrating
+Melanocorypha bimaculata,Bimaculated lark,Common
+Turdus eunomus,Dusky thrush,Migrating
+Phylloscopus plumbeitarsus,Two-barred warbler,Migrating
+Loxia leucoptera,Two-barred crossbill,Common
+Serinus canaria,Atlantic canary,Common
+Glareola nordmanni,Black-winged pratincole,Common
+Glaucidium passerinum,Eurasian pygmy owl,Common
+Branta hutchinsii,Cackling goose,Common
+Nymphicus hollandicus,Cockatiel,Exotic
+Pagophila eburnea,Ivory gull,Common
+Vanellus leucurus,White-tailed lapwing,Migrating
+Emberiza chrysophrys,Emberiza,Common
+Tringa stagnatilis,Marsh sandpiper,Common
+Curruca melanocephala,Sardinian warbler,Common
+Phylloscopus ibericus,Iberian chiffchaff,Common
+Lanius phoenicuroides,Lanius,Migrating
+Mareca sibilatrix,Chiloé wigeon,Common
+Emberiza cirlus,Cirl bunting,Exotic
+Calandrella brachydactyla,Greater short-toed lark,Migrating
+Iduna pallida,Eastern olivaceous warbler,Common
+Motacilla citreola,Citrine wagtail,Common
+Gelochelidon nilotica,Gull-billed tern,Common
+Cecropis semirufa,Red-breasted swallow,Common
+Oenanthe pleschanka,Pied wheatear,Migrating
+Prunella atrogularis,Black-throated accentor,Migrating
+Bubo scandiacus,Snowy owl,Migrating
+Anthus hodgsoni,Olive-backed pipit,Common
+Buteo rufinus,Long-legged buzzard,Common
+Calidris himantopus,Stilt sandpiper,Common
+Polysticta stelleri,Steller's eider,Endangered
+Hydrobates pelagicus,European storm petrel,Exotic
+Bucanetes githagineus,Trumpeter finch,Common
+Ardeola ralloides,Squacco heron,Common
+Emberiza leucocephalos,Emberiza,Common
+Aix sponsa,Wood duck,Migrating
+Anas rubripes,American black duck,Migrating
+Emberiza rustica,Rustic bunting,Migrating
+Xenus cinereus,Terek sandpiper,Migrating
+Larus delawarensis,Ring-billed gull,Common
+Spatula discors,Blue-winged teal,Common
+Porzana parva,Little crake,Migrating
+Calidris fuscicollis,White-rumped sandpiper,Migrating
+Tarsiger cyanurus,Red-flanked bluetail,Migrating
+Ichthyaetus audouinii,Audouin's gull,Migrating
+Oenanthe leucopyga,White-crowned wheatear,Common
+Limnodromus scolopaceus,Long-billed dowitcher,Common
+Carpodacus sibiricus,Siberian long-tailed rosefinch,Common
+Oenanthe deserti,Desert wheatear,Migrating
+Otus scops,Scops owl,Common
+Anthus campestris,Tawny pipit,Common
+Zoothera aurea,White's thrush,Common
+Emberiza buchanani,Emberiza,Common
+Aquila heliaca,Eastern imperial eagle,Endangered
+Lanius schach,Long-tailed shrike,Common
+Rhodostethia rosea,Ross's gull,Common
+Pluvialis fulva,Pacific golden plover,Migrating
+Oenanthe isabellina,Isabelline wheatear,Migrating
+Calidris acuminata,Sharp-tailed sandpiper,Migrating
+Pelecanus crispus,Dalmatian pelican,Endangered
+Marmaronetta angustirostris,Marbled duck,Common
+Calonectris diomedea,Scopoli's shearwater,Common
+Ficedula albicollis,Collared flycatcher,Migrating
+Vanellus spinosus,Spur-winged lapwing,Common
+Phylloscopus borealis,Arctic warbler,Migrating
+Botaurus lentiginosus,American bittern,Common
+Acrocephalus paludicola,Aquatic warbler,Migrating
+Ardea purpurea,Purple heron,Common
+Thalassarche melanophris,Black-browed albatross,Common
+Anser cygnoides,Swan goose,Exotic
+Haliaeetus pelagicus,Steller's sea eagle,Endangered
+Anthus godlewskii,Blyth's pipit,Common
+Chroicocephalus philadelphia,Bonaparte's gull,Common
+Vireo olivaceus,Red-eyed vireo,Endangered
+Locustella lanceolata,Lanceolated warbler,Migrating
+Emberiza cineracea,Emberiza,Common
+Leucophaeus atricilla,Laughing gull,Common
+Larus glaucescens,Glaucous-winged gull,Common
+Larvivora sibilans,Rufous-tailed robin,Common
+Coracias garrulus,European roller,Common
+Pelecanus onocrotalus,Great white pelican,Endangered
+Syrmaticus reevesii,Reeves's pheasant,Exotic
+Sterna dougallii,Roseate tern,Common
+Onychoprion anaethetus,Bridled tern,Common
+Prunella collaris,Alpine accentor,Common
+Acrocephalus agricola,Paddyfield warbler,Migrating
+Tachymarptis melba,Alpine swift,Migrating
+Cygnus melancoryphus,Black-necked swan,Common
+Sylvia nana,Asian desert warbler,Common
+Zenaida macroura,Mourning dove,Common
+Cettia cetti,Cetti's warbler,Common
+Alectoris rufa,Red-legged partridge,Common
+Threskiornis aethiopicus,African sacred ibis,Common
+Gyps rueppellii,Rüppell's vulture,Endangered
+Vanellus gregarius,Sociable lapwing,Migrating
+Iduna caligata,Booted warbler,Common
+Cyanopica cooki,Iberian magpie,Common
+Sturnus unicolor,Spotless starling,Migrating
+Phylloscopus griseolus,Sulphur-bellied warbler,Common
+Hippolais polyglotta,Melodious warbler,Migrating
+Catharus ustulatus,Swainson's thrush,Common
+Curruca iberiae,Western subalpine warbler,Common
+Cecropis daurica,Eastern red-rumped swallow,Common
+Anthropoides virgo,Demoiselle crane,Migrating
+Emberiza melanocephala,Black-headed bunting,Migrating
+Melanitta deglandi,White-winged scoter,Common
+Chloephaga picta,Upland goose,Common
+Uria lomvia,Thick-billed murre,Common
+Grus japonensis,Red-crowned crane,Common
+Calidris pusilla,Semipalmated sandpiper,Common
+Phoenicopterus roseus,Greater flamingo,Common
+Aegypius monachus,Cinereous vulture,Common
+Emberiza cia,Rock bunting,Common
+Clamator glandarius,Great spotted cuckoo,Common
+Emberiza bruniceps,Red-headed bunting,Migrating
+Calidris ruficollis,Red-necked stint,Migrating
+Lanius cristatus,Brown shrike,Common
+Sylvia sarda,Marmora's warbler,Common
+Picoides tridactylus,Eurasian three-toed woodpecker,Common
+Setophaga striata,Blackpoll warbler,Migrating
+Charadrius asiaticus,Caspian plover,Migrating
+Charadrius leschenaultii,Greater sand plover,Common
+Bartramia longicauda,Upland sandpiper,Common
+Pelecanus rufescens,Pink-backed pelican,Common
+Phoeniconaias minor,Lesser flamingo,Common
+Apus pacificus,Pacific swift,Migrating
+Chroicocephalus genei,Slender-billed gull,Migrating
+Psittacula eupatria,Alexandrine parakeet,Common
+Chrysolophus pictus,Golden pheasant,Common
+Spatula cyanoptera,Cinnamon teal,Common
+Ficedula albicilla,Taiga flycatcher,Migrating
+Apus affinis,Little swift,Common
+Myiopsitta monachus,Monk parakeet,Common
+Phylloscopus nitidus,Green warbler,Common
+Puffinus gravis,Great shearwater,Common
+Ichthyaetus ichthyaetus,Pallas's gull,Common
+Hirundapus caudacutus,White-throated needletail,Migrating
+Catharus guttatus,Hermit thrush,Common
+Pernis ptilorhynchus,Crested honey buzzard,Common
+Falco eleonorae,Eleonora's falcon,Common
+Corvus albus,Pied crow,Common
+Ara militaris,Military macaw,Endangered
+Haliaeetus leucocephalus,Bald eagle,Endangered
+Thalasseus elegans,Elegant tern,Migrating
+Alectoris chukar,Chukar partridge,Exotic
+Leucophaeus pipixcan,Franklin's gull,Common
+Ptyonoprogne rupestris,Eurasian crag martin,Migrating
+Falco biarmicus,Lanner falcon,Common
+Zonotrichia leucophrys,White-crowned sparrow,Migrating
+Turdus obscurus,Eyebrowed thrush,Migrating
+Larus armenicus,Armenian gull,Common
+Passer hispaniolensis,Spanish sparrow,Common
