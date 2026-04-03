@@ -1,6 +1,6 @@
 # Dashboard
 
-To access the main dashboard, clone the repository according to the earlier instructions, and then run ```dashplot.py``` from the dash directory.
+To access the main dashboard, clone the repository as instructed below, and then run ```dashplot.py``` from the dash directory.
 
 We have another dashboard in development so far.
 
