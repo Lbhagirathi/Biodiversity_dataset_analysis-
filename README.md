@@ -1,3 +1,9 @@
+# Dashboard
+
+To access the main dashboard, clone the repository according to the earlier instructions, and then run ```dashplot.py``` from the dash directory.
+
+We have another dashboard in development so far.
+
 # Cloning the repository
 
 ```bash
@@ -35,7 +41,3 @@ pip install -r packages.txt
 ```
 
 ---
-
-# Dashboard
-
-To access the main dashboard, clone the repository according to the earlier instructions, and then run ```dashplot.py``` from the dash directory.
