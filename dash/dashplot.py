@@ -53,13 +53,13 @@ def create_zoomable_image(img_url, title=""):
         margin=dict(l=0, r=0, t=40 if title else 0, b=0),
         plot_bgcolor="white",
         dragmode="pan", # Default to panning when clicked
-        height=350 
+        height=500 
     )
     
     return dcc.Graph(
         figure=fig, 
         config={'scrollZoom': True, 'displayModeBar': True, 'modeBarButtonsToRemove': ['lasso2d', 'select2d']},
-        style={"width": "100%", "maxWidth": "400px", "margin": "auto"}
+        style={"width": "100%", "maxWidth": "600px", "margin": "auto"}
     )
 
 
@@ -296,7 +296,7 @@ def update(species, status, plot_type):
         cloud_img_card = html.Div([html.P("No image available", style={"color": "gray"})], style={**card_style, "flex": "1", "textAlign": "center"})
 
     # Put both cards side by side using Flexbox
-    bottom_row = html.Div([cloud_img_card, global_plot_card], style={"display": "flex", "gap": "20px", "alignItems": "stretch", "width": "100%"})
+    bottom_row = html.Div([cloud_img_card, global_plot_card], style={"display": "flex", "gap": "10px", "alignItems": "stretch", "width": "100%"})
 
     display_name = (
         f"{row['common_name']} ({species})"
