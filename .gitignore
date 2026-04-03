@@ -4,3 +4,7 @@
 *.parquet
 
 .DS_Store
+
+results/species_yearly_maps/
+results/species_maps_raw_beautiful/
+results/species_monthly_yearly/
